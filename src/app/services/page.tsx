@@ -1,103 +1,140 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
+import PageHero from '@/components/PageHero';
 
 export const metadata: Metadata = {
-  title: 'Services',
-  description: 'Custom activewear manufacturing services: design, prototyping, private label, bulk production, and more.',
+  title: 'Services | Activewear Clothing Manufacturers',
+  description:
+    'Comprehensive activewear manufacturing services: custom design, tech packs, fabric sourcing, sampling, private labeling, bulk production and more.',
 };
 
-export default function ServicesPage() {
-  const services = [
-    { title: 'Custom Product Design', icon: '✏️' },
-    { title: 'Tech Pack Development', icon: '📋' },
-    { title: 'Fabric Sourcing', icon: '🧵' },
-    { title: 'Sampling & Prototyping', icon: '🎨' },
-    { title: 'Private Labeling', icon: '🏷️' },
-    { title: 'Bulk Manufacturing', icon: '🏭' },
-    { title: 'Quality Assurance', icon: '✅' },
-    { title: 'Logistics & Shipping', icon: '📦' },
-    { title: 'Brand Consultation', icon: '💼' },
-    { title: 'Sustainable Practices', icon: '🌱' },
-    { title: 'Pattern Making', icon: '📐' },
-    { title: 'Cut & Sew Services', icon: '✂️' },
-    { title: 'Embroidery & Printing', icon: '🖨️' },
-    { title: 'Packaging Solutions', icon: '🎁' },
-    { title: 'Market Analysis', icon: '📊' },
-  ];
+const services = [
+  'Custom Product Design',
+  'Tech Pack Development',
+  'Fabric Sourcing',
+  'Sampling & Prototyping',
+  'Private Labeling',
+  'Bulk Manufacturing',
+  'Quality Assurance',
+  'Logistics & Shipping',
+  'Brand Consultation',
+  'Sustainable Practices',
+  'Pattern Making',
+  'Cut & Sew Services',
+  'Embroidery & Printing',
+  'Packaging Solutions',
+  'Market Analysis',
+];
 
-  const features = [
-    { title: 'Low Minimum Order Quantities', description: 'Start your collection with as few as 50 pieces per style, perfect for emerging brands.' },
-    { title: 'Fast Production Timelines', description: 'Get your products ready for market in as little as 4 weeks from design approval.' },
-    { title: 'High-Quality Materials', description: 'We source only the finest fabrics to ensure durability and comfort in every piece.' },
-    { title: 'Dedicated Support', description: 'Our team is with you every step of the way, from initial concept to final delivery.' },
-  ];
+const features = [
+  {
+    title: 'Low Minimum Order Quantities',
+    description:
+      'Start your collection with as few as 50 pieces per style, perfect for emerging brands.',
+  },
+  {
+    title: 'Fast Production Timelines',
+    description:
+      'Get your products ready for market in as little as 4 weeks from design approval.',
+  },
+  {
+    title: 'High-Quality Materials',
+    description:
+      'We source only the finest fabrics to ensure durability and comfort in every piece.',
+  },
+  {
+    title: 'Dedicated Support',
+    description:
+      'Our team is with you every step of the way, from initial concept to final delivery.',
+  },
+];
 
+export default function Services() {
   return (
     <>
-      <section className="relative bg-gradient-to-br from-indigo-50 to-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Elevate Your Brand with Custom Activewear Solutions</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-            Discover unparalleled expertise in activewear manufacturing, tailored to bring your brand's vision to life with precision and style.
+      <PageHero
+        variant="solid"
+        title="Elevate Your Brand with Custom Activewear Solutions"
+        subtext="Discover unparalleled expertise in activewear manufacturing, tailored to bring your brand’s vision to life with precision and style."
+        ctaText="Explore Our Services"
+        ctaHref="#services"
+      />
+
+      {/* Services grid */}
+      <section id="services" className="py-20 md:py-28 bg-white">
+        <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+          <Image
+            src="/images/services-model.jpg"
+            alt="Activewear model wearing custom manufactured apparel"
+            width={800}
+            height={1080}
+            className="rounded-md w-full h-auto"
+          />
+          <div className="lg:col-span-2">
+            <h2 className="text-3xl md:text-4xl mb-10">
+              Comprehensive Manufacturing Services
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {services.map((service) => (
+                <div key={service} className="flex items-center gap-3">
+                  <span className="w-8 h-8 rounded-full bg-coral/10 flex items-center justify-center shrink-0">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f2542d" strokeWidth="2.5">
+                      <path d="M5 13l4 4L19 7" />
+                    </svg>
+                  </span>
+                  <h4 className="font-sans font-semibold text-sm">{service}</h4>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-20 md:py-28 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4">
+          <p className="eyebrow text-center mb-3">Why Choose Us</p>
+          <h2 className="text-3xl md:text-4xl text-center mb-14">
+            Unmatched Features of Our Services
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+            <Image
+              src="/images/services-fabric.jpg"
+              alt="Premium activewear fabric close-up"
+              width={800}
+              height={600}
+              className="rounded-md w-full h-auto"
+            />
+            <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {features.map((feature) => (
+                <div
+                  key={feature.title}
+                  className="bg-white rounded-md shadow-[0px_24px_72px_-12px_rgba(0,0,0,0.12)] p-7"
+                >
+                  <h4 className="text-lg mb-3">{feature.title}</h4>
+                  <p className="text-ink/70 text-sm leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-navy py-20 md:py-24 text-center">
+        <div className="max-w-3xl mx-auto px-4">
+          <h2 className="text-white text-3xl md:text-4xl mb-6">
+            Get Started with Us Today
+          </h2>
+          <p className="text-white/80 leading-relaxed mb-8">
+            Ready to elevate your activewear line? Contact us for a consultation
+            or quote and discover how we can bring your vision to life with
+            precision and expertise.
           </p>
-          <div className="flex justify-center gap-8 text-center">
-            <div>
-              <div className="text-3xl mb-2">💡</div>
-              <p className="font-semibold text-gray-900">Innovative Design</p>
-            </div>
-            <div>
-              <div className="text-3xl mb-2">⭐</div>
-              <p className="font-semibold text-gray-900">Premium Quality</p>
-            </div>
-            <div>
-              <div className="text-3xl mb-2">⚡</div>
-              <p className="font-semibold text-gray-900">Efficient Production</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-12 text-center">Comprehensive Manufacturing Services</h2>
-          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {services.map((service, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl p-6 text-center hover:shadow-md transition-shadow">
-                <div className="text-3xl mb-3">{service.icon}</div>
-                <h3 className="font-semibold text-gray-900">{service.title}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <p className="text-indigo-600 font-semibold mb-2 uppercase tracking-wider">Why Choose Us</p>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">Unmatched Features of Our Services</h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {features.map((feature, index) => (
-              <div key={index} className="bg-white rounded-xl p-8 shadow-sm">
-                <h3 className="text-xl font-bold text-indigo-600 mb-4">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-indigo-600">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">Get Started with Us Today</h2>
-          <p className="text-xl text-indigo-100 mb-8">
-            Ready to elevate your activewear line? Contact us for a consultation or quote and discover how we can bring your vision to life.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-white text-indigo-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-          >
+          <Link href="/contact-us" className="btn-coral">
             Contact Us Now
           </Link>
         </div>

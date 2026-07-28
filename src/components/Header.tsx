@@ -1,82 +1,77 @@
 'use client';
 
-import Link from 'next/link';
 import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'About Us', href: '/about-us' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact Us', href: '/contact-us' },
+];
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'Services', href: '/services' },
-    { name: 'About Us', href: '/about' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Contact Us', href: '/contact' },
-  ];
+  const [open, setOpen] = useState(false);
 
   return (
-    <header className="bg-white sticky top-0 z-50 border-b border-gray-100">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20 items-center">
-          <Link href="/" className="flex items-center">
-            <span className="text-xl font-bold text-gray-900">Activewear Clothing Manufacturers</span>
-          </Link>
+    <header className="bg-white shadow-[0_1px_0_rgba(0,0,0,0.1)] sticky top-0 z-50">
+      <div className="max-w-6xl mx-auto px-4 flex items-center justify-between">
+        <Link href="/" aria-label="Activewear Clothing Manufacturers" className="py-1">
+          <Image
+            src="/images/logo.png"
+            alt="Activewear Clothing Manufacturers"
+            width={52}
+            height={52}
+            priority
+          />
+        </Link>
 
-          <div className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-gray-600 hover:text-indigo-600 font-medium transition-colors"
-              >
-                {item.name}
-              </Link>
-            ))}
+        {/* Desktop nav */}
+        <nav className="hidden lg:flex items-center gap-8">
+          {navLinks.map((link) => (
             <Link
-              href="/contact"
-              className="bg-indigo-600 text-white px-5 py-2.5 rounded-lg hover:bg-indigo-700 transition-colors font-semibold"
+              key={link.href}
+              href={link.href}
+              className="text-navy/70 text-sm font-sans font-medium hover:text-teal transition-colors"
             >
-              Get a Quote
+              {link.label}
             </Link>
-          </div>
+          ))}
+        </nav>
 
-          <button
-            type="button"
-            className="md:hidden p-2 rounded-md text-gray-600"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              {mobileMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
-        </div>
+        {/* Mobile hamburger */}
+        <button
+          className="lg:hidden text-navy p-2"
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle menu"
+        >
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            {open ? (
+              <path d="M6 6l12 12M18 6L6 18" />
+            ) : (
+              <path d="M3 6h18M3 12h18M3 18h18" />
+            )}
+          </svg>
+        </button>
+      </div>
 
-        {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-100">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="block py-3 text-gray-600 hover:text-indigo-600 font-medium"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
+      {/* Mobile menu */}
+      {open && (
+        <nav className="lg:hidden bg-white border-t border-navy/10 px-4 pb-4">
+          {navLinks.map((link) => (
             <Link
-              href="/contact"
-              className="block mt-4 bg-indigo-600 text-white px-4 py-3 rounded-lg text-center font-semibold"
-              onClick={() => setMobileMenuOpen(false)}
+              key={link.href}
+              href={link.href}
+              onClick={() => setOpen(false)}
+              className="block text-navy/80 text-sm font-sans py-3 border-b border-navy/5"
             >
-              Get a Quote
+              {link.label}
             </Link>
-          </div>
-        )}
-      </nav>
+          ))}
+        </nav>
+      )}
     </header>
   );
 }
