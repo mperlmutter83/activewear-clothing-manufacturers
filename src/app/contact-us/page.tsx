@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 const contactCards = [
   {
     label: 'Phone',
-    value: '(123) 456-7890',
-    href: 'tel:+11234567890',
+    value: '(310) 499-2160',
+    href: 'tel:+13104992160',
     icon: (
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#127475" strokeWidth="2">
         <path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 2 .7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.2a2 2 0 012.1-.5c.9.3 1.9.6 2.8.7a2 2 0 011.7 2z" />
@@ -23,8 +23,8 @@ const contactCards = [
   },
   {
     label: 'Email',
-    value: 'info@activewearmanufacturers.com',
-    href: 'mailto:info@activewearmanufacturers.com',
+    value: 'info@activewearclothingmanufacturers.com',
+    href: 'mailto:info@activewearclothingmanufacturers.com',
     icon: (
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#127475" strokeWidth="2">
         <rect x="2" y="4" width="20" height="16" rx="2" />
@@ -49,7 +49,7 @@ const faqs = [
   {
     question: 'How can I contact Activewear Clothing Manufacturers?',
     answer:
-      'You can reach us via our contact form on the website, email us at info@activewearmanufacturers.com, or call us at (123) 456-7890.',
+      'You can reach us via our contact form on the website, email us at info@activewearclothingmanufacturers.com, or call us at (310) 499-2160.',
   },
   {
     question: 'What is the minimum order quantity (MOQ) for custom activewear?',

@@ -34,8 +34,8 @@ const organizationSchema = {
   "@type": "Organization",
   name: "Activewear Clothing Manufacturers",
   url: "https://activewearclothingmanufacturers.com",
-  telephone: "(123) 456-7890",
-  email: "info@activewearmanufacturers.com",
+  telephone: "(310) 499-2160",
+  email: "info@activewearclothingmanufacturers.com",
   logo: "https://activewearclothingmanufacturers.com/images/logo.png",
   image: "https://activewearclothingmanufacturers.com/images/hero.jpg",
   address: {

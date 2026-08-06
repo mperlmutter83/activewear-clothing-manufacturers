@@ -52,16 +52,16 @@ export default function Footer() {
           <ul className="space-y-3 text-sm text-white/70">
             <li>Los Angeles, CA</li>
             <li>
-              <a href="tel:+11234567890" className="hover:text-teal transition-colors">
-                (123) 456-7890
+              <a href="tel:+13104992160" className="hover:text-teal transition-colors">
+                (310) 499-2160
               </a>
             </li>
             <li>
               <a
-                href="mailto:info@activewearmanufacturers.com"
+                href="mailto:info@activewearclothingmanufacturers.com"
                 className="hover:text-teal transition-colors"
               >
-                info@activewearmanufacturers.com
+                info@activewearclothingmanufacturers.com
               </a>
             </li>
           </ul>
