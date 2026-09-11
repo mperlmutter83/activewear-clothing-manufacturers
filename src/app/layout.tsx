@@ -54,6 +54,22 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${abril.variable} ${poppins.variable}`}>
       <head>
+        {/* RFM site data - pushed before GTM loads */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+  rfm: {
+    schema_version: "1.0",
+    site_id: "activewear_clothing_manufacturers",
+    provider_id: "11e4ec61-5314-464f-851f-b7e9e72ecfda",
+    provider_name: "Activewear Clothing Manufacturers",
+    service_category: "clothing_manufacturing",
+    market: "national"
+  }
+});`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
