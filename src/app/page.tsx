@@ -2,6 +2,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import PageHero from '@/components/PageHero';
 
+export const metadata = {
+  alternates: {
+    canonical: "https://www.activewearclothingmanufacturers.com",
+  },
+};
+
 const accolades = [
   {
     year: '2023',
