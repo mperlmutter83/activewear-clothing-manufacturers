@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const PHONE_DISPLAY = '(310) 499-2160';
 const PHONE_HREF = 'tel:+13104992160';
@@ -35,8 +36,14 @@ function PhoneIcon({ className }: { className?: string }) {
 export default function Header() {
   const [open, setOpen] = useState(false);
 
+  // On the homepage the header floats (fixed, frosted white) over the scroll film.
+  const overlay = usePathname() === '/';
+  const headerClass = overlay
+    ? 'bg-white/85 backdrop-blur-md shadow-[0_1px_0_rgba(0,0,0,0.08)] fixed top-0 inset-x-0 z-50'
+    : 'bg-white shadow-[0_1px_0_rgba(0,0,0,0.1)] sticky top-0 z-50';
+
   return (
-    <header className="bg-white shadow-[0_1px_0_rgba(0,0,0,0.1)] sticky top-0 z-50">
+    <header className={headerClass}>
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between">
         <Link href="/" aria-label="Activewear Clothing Manufacturers" className="py-1">
           <Image
